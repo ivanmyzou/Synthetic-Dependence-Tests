@@ -22,3 +22,5 @@ This step may be skipped by downloading the two large compressed files under the
 https://www.dropbox.com/sh/l4rkxkh5w1asury/AABbBT2n-ip3hKeCRiLep27Ga?dl=0. The two compressed files should be uncompressed in the same home directory which should create two new folders named 'Train' and 'Test' 
 
 ## Tutorial for Testing with New Dependence Structures:
+
+For the detailed tutorial, see the pdf file in **tutorial.rar**.
