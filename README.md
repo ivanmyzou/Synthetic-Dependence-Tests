@@ -23,4 +23,15 @@ https://www.dropbox.com/sh/l4rkxkh5w1asury/AABbBT2n-ip3hKeCRiLep27Ga?dl=0. The t
 
 ## Tutorial for Testing with New Dependence Structures:
 
-For the detailed tutorial, see the pdf file in **tutorial.rar**.
+For the detailed tutorial, see the pdf file in **tutorial.rar**. The entire process can be listed as:
+
+In R:
+- Creation of random sample pairs under the new dependence structure;
+- Applying measures and dependence tests over the samples to obtain estimated values;
+- Producing image pixel values from density plots of the samples;
+- Exporting the values to txt files.
+
+In Python:
+- Loading the models;
+- Loading the values from txt files;
+- Testing with the models against other measures and dependence tests.
