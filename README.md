@@ -27,11 +27,11 @@ For the detailed tutorial, see the pdf file in **tutorial.rar**. The entire proc
 
 In R:
 - Creation of random sample pairs under the new dependence structure;
-- Applying measures and dependence tests over the samples to obtain estimated values;
+- Applying measures and dependence tests (competitors) over the samples to obtain estimated values;
 - Producing image pixel values from density plots of the samples;
 - Exporting the values to txt files.
 
 In Python:
 - Loading the models;
 - Loading the values from txt files;
-- Testing with the models against other measures and dependence tests.
+- Testing with the models against other competitors.
