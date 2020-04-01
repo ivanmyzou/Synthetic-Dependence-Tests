@@ -10,4 +10,8 @@ This repository provides all files needed to reproduce the results in the thesis
 
 ## Reproduction of Results:
 
+- **Downlaod and Decompress Files** :
+
+- **Sample Generations** :
+
 ## Tutorial for Testing with New Dependence Structures:
