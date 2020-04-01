@@ -20,6 +20,8 @@ Contact Email: ivanmyzou@gmail.com
 - **Sample Generations** : It would take a very long time to produce all results in R so it is recommended to simply download the exported results. The R file 'dircreate' should be run first to create folders. All other R files can be then run in any order to produce needed txt files where held the exported values of competitor (measures and dependent tests) values or greyscale pixel values. This step may be skipped by downloading the two large compressed files under the link:
 https://www.dropbox.com/sh/l4rkxkh5w1asury/AABbBT2n-ip3hKeCRiLep27Ga?dl=0. The compressed file 'Test' should be uncompressed in the same home directory which should create a new folder 'Test'. The compressed file 'Train' was used for model training and has no used in model assessment.
 
+- **Results Production** : Any python file can be now run to reproduce the results in the thesis.
+
 ## Tutorial for Testing with New Dependence Structures:
 
 For the detailed tutorial, see the pdf file in **tutorial.rar**. The entire process can be listed as:
