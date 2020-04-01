@@ -9,3 +9,5 @@ This repository provides all files needed to reproduce the results in the thesis
 - **results.rar** : python files that can be used to produce the powerplots shown in the thesis as well as more detailed numerical results (require the used of python library for machine learning Keras as well as the Keras model files and txt files for features in the same directory).
 
 ## Reproduction of Results:
+
+## Tutorial for Testing with New Dependence Structures:
