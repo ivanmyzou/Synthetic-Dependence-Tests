@@ -17,9 +17,8 @@ Contact Email: ivanmyzou@gmail.com
 
 - **Download and Decompress Files** : All compressed files except **tutorial.rar** should be downloaded and decompressed at a home directory. Such home directory should be set as the working directory for both R and Python.
 
-- **Sample Generations** :
-This step may be skipped by downloading the two large compressed files under the link:
-https://www.dropbox.com/sh/l4rkxkh5w1asury/AABbBT2n-ip3hKeCRiLep27Ga?dl=0. The two compressed files should be uncompressed in the same home directory which should create two new folders named 'Train' and 'Test' 
+- **Sample Generations** : It would take a very long time to produce all results in R so it is recommended to simply download the exported results. The R file 'dircreate' should be run first to create folders. All other R files can be then run in any order to produce needed txt files where held the exported values of competitor (measures and dependent tests) values or greyscale pixel values. This step may be skipped by downloading the two large compressed files under the link:
+https://www.dropbox.com/sh/l4rkxkh5w1asury/AABbBT2n-ip3hKeCRiLep27Ga?dl=0. The compressed file 'Test' should be uncompressed in the same home directory which should create a new folder 'Test'. The compressed file 'Train' was used for model training and has no used in model assessment.
 
 ## Tutorial for Testing with New Dependence Structures:
 
