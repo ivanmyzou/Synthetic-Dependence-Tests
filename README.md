@@ -1,6 +1,7 @@
 # Synthetic-Dependence-Tests
 This repository provides all files needed to reproduce the results in the thesis **Synthetic Dependence Tests Based on Deep Learning** as well as a tutorial to produce new dependence structures to be tested.
 
+Arthur: Ivan Muyun Zou
 Contact Email: ivanmyzou@gmail.com
 
 ## List of Files:
