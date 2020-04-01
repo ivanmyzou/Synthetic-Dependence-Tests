@@ -15,7 +15,7 @@ Contact Email: ivanmyzou@gmail.com
 
 ## Reproduction of Results:
 
-- **Download and Decompress Files** :
+- **Download and Decompress Files** : All compressed files except **tutorial.rar** should be downloaded and decompressed at a home directory.
 
 - **Sample Generations** :
 This step may be skipped by downloading the two large compressed files under the link:
