@@ -1,0 +1,80 @@
+---
+title: Creation of Power Tests
+author: Ivan Muyun Zou
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{foreach}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{utf8}
+---
+
+```{r loadLibs, include=FALSE}
+library(depstats)
+library(foreach)
+library(keras)
+#the model files need to be placed in the correct location
+allnet  <- load_model_hdf5('allnet.model')
+allCNN <- load_model_hdf5('allCNN.model')
+```
+
+## Sample Generation
+Here we create 100 samples of size 50 of a particular dependence structure. The dependence structure is the addition of Sine and Heart.
+
+```{r 1, fig.width=7, fig.height=5}
+set.seed(0)
+n = 50
+X1 <- depgen(100,n,'normnoise(sine.cv(n,runif(1,1,4)),runif(1,0,1))',
+             randrotate=TRUE)
+X2 <- depgen(100,n,'normnoise(heart.cv(n),runif(1,0,0.25))',
+             randrotate=TRUE)
+X <- X1 + X2
+##Plotting with larger sample size so the pattern is clearer
+par(mfrow = c(1, 2),
+    oma = c(5,4,0,0) + 0.25,
+    mar = c(0,0,1,1) + 0.75)
+qplt(normnoise(sine.cv(500,runif(1,1,4)),runif(1,0,1)) +    normnoise(heart.cv(500),runif(1,0,0.25)))
+qplt(normnoise(sine.cv(500,runif(1,1,4)),runif(1,0,1)) +    normnoise(heart.cv(500),runif(1,0,0.25)))
+```
+
+## Feature Generation
+From the samples, features (competitor scores, sample size, image greyscale pixels) can be computed.
+
+```{r 2}
+#competitor scores
+cs <- sampleapply(X,c(n),1)
+
+#sample size
+#n 
+
+#image greyscale pixels
+im <- sampleapply(X,c(n),0,grid=25)
+
+features <- cbind(cs,n,im)
+```
+
+
+## Power Computations
+With the features we may now evaluate the powers across all competitors
+
+```{r}
+Powers1 <- computepowers(features,'allnet',allnet,50)
+Rownames <- c('allnet',
+              'ACE','AUK','Blom','dcor','EDC','Hell','Hoeff','HSIC',
+              'Info','Ken','Martdiff','MIC','Rand','Spear',
+              'ddrV','ddrTS2','hhgPsum','hhgGsum','hhgPmax','hhgGmax')
+Powers1 <- t(as.matrix(Powers1))
+colnames(Powers1) <- Rownames
+print(Powers1)
+```
+
+```{r}
+Powers2 <- computepowers(features,'allCNN',allCNN,50)
+Rownames <- c('allCNN',
+              'ACE','AUK','Blom','dcor','EDC','Hell','Hoeff','HSIC',
+              'Info','Ken','Martdiff','MIC','Rand','Spear',
+              'ddrV','ddrTS2','hhgPsum','hhgGsum','hhgPmax','hhgGmax')
+Powers2 <- t(as.matrix(Powers2))
+colnames(Powers2) <- Rownames
+print(Powers2)
+```
+
