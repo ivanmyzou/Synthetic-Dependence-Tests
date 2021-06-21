@@ -7,7 +7,7 @@ This part concerns reproducing the exact results. For tutorial on creating custo
 - Download **Reproducing.zip** and have it extracted.
 - Have **R** package **depstats** installed.
 - Run all **R** files in the extracted folders with working directory set to the location of each **R** file. This should create some **fst** files in the correct directory. **Power Comparison.R** and **threshold.R** are to be run later.
-- This step may be skipped by downloading **generatedsamples.rar** from https://www.dropbox.com/sh/l4rkxkh5w1asury/AABbBT2n-ip3hKeCRiLep27Ga?dl=0 and have it extracted. This file have all the **fst** files included.
+- This step may be skipped by downloading **Reproducing.rar** from https://www.dropbox.com/sh/l4rkxkh5w1asury/AABbBT2n-ip3hKeCRiLep27Ga?dl=0 and have it extracted. This file have all the **fst** files included.
 
 ## 2 Powers Computation
 
