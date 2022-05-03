@@ -1,4 +1,7 @@
-# Synthetic Dependence Tests
+# Instructions for Reproducing
 
-## Instructions for Reproducing
-
+1. 
+2.
+3.
+4.
+5.
