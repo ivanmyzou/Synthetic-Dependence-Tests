@@ -8,16 +8,16 @@ library(depstats)
 
 sample_sizes <- c(30, 50, 100, 200, 300, 400)
 
-image_model <- load_model_hdf5("3. Models/image.h5")
-score_model <- load_model_hdf5("3. Models/score.h5")
-combined_model <- load_model_tf("3. Models/score_image")
+image_model <- load_model_hdf5("3_Models/image.h5")
+score_model <- load_model_hdf5("3_Models/score.h5")
+combined_model <- load_model_tf("3_Models/score_image")
 
 
-image_thresholds <- readRDS('4. Estimated Thresholds/image_thresholds.RDS')
-score_thresholds <- readRDS('4. Estimated Thresholds/score_thresholds')
-combined_thresholds <- readRDS('4. Estimated Thresholds/combined_thresholds')
+image_thresholds <- readRDS('4_Estimated Thresholds/image_thresholds.RDS')
+score_thresholds <- readRDS('4_Estimated Thresholds/score_thresholds')
+combined_thresholds <- readRDS('4_Estimated Thresholds/combined_thresholds')
 
-other_thresholds <- readRDS('4. Estimated Thresholds/other_thresholds.RDS')
+other_thresholds <- readRDS('4_Estimated Thresholds/other_thresholds.RDS')
 
 
 library(foreach)
@@ -31,7 +31,7 @@ library(foreach)
 pb <- progress_bar$new(total = length(sample_sizes) * 3 * 20)
 
 powers <- foreach(n = sample_sizes, .combine = 'rbind') %do% {
-  df <- read.fst(sprintf("2. Testing/dependent tests/%s/deptest.fst", n))
+  df <- read.fst(sprintf("2_Testing/dependent tests/%s/deptest.fst", n))
 
   foreach(k = 1:20, .combine = 'rbind') %do% {
 
@@ -59,7 +59,7 @@ colnames(powers) <- c('combined', 'score', 'image', paste0('score', 1:19))
 powers[, `:=`(sample_size = rep(sample_sizes, each = 20),
               scenario = rep(1:20, 6))]
 
-powers %>% saveRDS('5. Powers/dep_powers.RDS')
+powers %>% saveRDS('5_Powers/dep_powers.RDS')
 
 dep_powers <- powers
 
@@ -74,8 +74,8 @@ dep_powers <- powers
 pb <- progress_bar$new(total = length(sample_sizes) * 3 * 14)
 
 powers <- foreach(n = sample_sizes, .combine = 'rbind') %do% {
-  df <- cbind(read.fst(sprintf("2. Testing/additional tests/%s/add.fst", n)), n,
-              read.fst(sprintf("2. Testing/additional tests/%s/add_image.fst", n)))
+  df <- cbind(read.fst(sprintf("2_Testing/additional tests/%s/add.fst", n)), n,
+              read.fst(sprintf("2_Testing/additional tests/%s/add_image.fst", n)))
 
   foreach(k = 1:14, .combine = 'rbind') %do% {
 
@@ -103,7 +103,7 @@ colnames(powers) <- c('combined', 'score', 'image', paste0('score', 1:19))
 powers[, `:=`(sample_size = rep(sample_sizes, each = 14),
               scenario = rep(1:14, 6))]
 
-powers %>% saveRDS('5. Powers/add_powers.RDS')
+powers %>% saveRDS('5_Powers/add_powers.RDS')
 
 add_powers <- powers
 
@@ -118,8 +118,8 @@ pb <- progress_bar$new(total = length(sample_sizes) * 3 * 4)
 
 powers <- foreach(n = sample_sizes, .combine = 'rbind') %do% {
   df <- foreach(j = 1:4, .combine = 'rbind') %do% {
-    cbind(read.fst(sprintf("2. Testing/image tests/%simage%sSCORE.fst", n, j)), n,
-          read.fst(sprintf("2. Testing/image tests/%simage%sIMAGE.fst", n, j)))
+    cbind(read.fst(sprintf("2_Testing/image tests/%simage%sSCORE.fst", n, j)), n,
+          read.fst(sprintf("2_Testing/image tests/%simage%sIMAGE.fst", n, j)))
   }
 
   foreach(k = 1:4, .combine = 'rbind') %do% {
@@ -148,7 +148,7 @@ colnames(powers) <- c('combined', 'score', 'image', paste0('score', 1:19))
 powers[, `:=`(sample_size = rep(sample_sizes, each = 4),
               scenario = rep(1:4, 6))]
 
-powers %>% saveRDS('5. Powers/image_powers.RDS')
+powers %>% saveRDS('5_Powers/image_powers.RDS')
 
 image_powers <- powers
 
@@ -163,8 +163,8 @@ pb <- progress_bar$new(total = length(sample_sizes) * 3 * 6)
 
 powers <- foreach(n = sample_sizes, .combine = 'rbind') %do% {
   df <-  foreach(j = 1:6, .combine = 'rbind') %do% {
-    cbind(read.fst(sprintf("2. Testing/scribble tests/%sscribble%sSCORE.fst", n, j)), n,
-          read.fst(sprintf("2. Testing/scribble tests/%sscribble%sIMAGE.fst", n, j)))
+    cbind(read.fst(sprintf("2_Testing/scribble tests/%sscribble%sSCORE.fst", n, j)), n,
+          read.fst(sprintf("2_Testing/scribble tests/%sscribble%sIMAGE.fst", n, j)))
   }
 
   foreach(k = 1:6, .combine = 'rbind') %do% {
@@ -208,8 +208,8 @@ scribble_powers <- powers
 pb <- progress_bar$new(total = length(sample_sizes) * 3 * 16)
 
 powers <- foreach(n = sample_sizes, .combine = 'rbind') %do% {
-  df <- cbind(read.fst(sprintf("2. Testing/noise tests/%s/noise.fst", n)), n,
-              read.fst(sprintf("2. Testing/noise tests/%s/noise_image.fst", n)))
+  df <- cbind(read.fst(sprintf("2_Testing/noise tests/%s/noise.fst", n)), n,
+              read.fst(sprintf("2_Testing/noise tests/%s/noise_image.fst", n)))
 
   foreach(k = 1:16, .combine = 'rbind') %do% {
 
@@ -237,7 +237,7 @@ colnames(powers) <- c('combined', 'score', 'image', paste0('score', 1:19))
 powers[, `:=`(sample_size = rep(sample_sizes, each = 16),
               scenario = rep(1:16, 6))]
 
-powers %>% saveRDS('5. Powers/increasingnoise_powers.RDS')
+powers %>% saveRDS('5_Powers/increasingnoise_powers.RDS')
 
 increasingnoise_powers <- powers
 

@@ -13,7 +13,7 @@ defaultcol = c('combined','score','image',
 
 ##################################################
 
-powers <- readRDS('5. Powers/dep_powers.RDS') %>% as.data.table
+powers <- readRDS('5_Powers/dep_powers.RDS') %>% as.data.table
 
 Group <- c("Linear", "Diamond", "Triangle", "Crescent", "Points", "Expo-nential",
            "Circles", "Cross", "Wedge", "Cubic", "W-shape", "Parabola", "Two-parabola",
@@ -27,7 +27,7 @@ latexpowers(Powers, Group)
 
 ##################################################
 
-powers <- readRDS('5. Powers/add_powers.RDS') %>% as.data.table
+powers <- readRDS('5_Powers/add_powers.RDS') %>% as.data.table
 
 Group <- paste0(rep(1:7, each = 2), c('A', 'B'))
 
@@ -40,7 +40,7 @@ latexpowers(Powers, Group)
 ##################################################
 #image
 
-powers <- readRDS('5. Powers/image_powers.RDS') %>% as.data.table
+powers <- readRDS('5_Powers/image_powers.RDS') %>% as.data.table
 
 Group <- paste0('Image ', 1:4)
 
@@ -53,7 +53,7 @@ latexpowers(Powers, Group)
 ##################################################
 #scribble
 
-powers <- readRDS('5. Powers/scribble_powers.RDS') %>% as.data.table
+powers <- readRDS('5_Powers/scribble_powers.RDS') %>% as.data.table
 
 Group <- paste0('Scribble ', 1:6)
 
@@ -67,7 +67,7 @@ latexpowers(Powers, Group)
 ##################################################
 #INC
 
-powers <- readRDS('5. Powers/increasingnoise_powers.RDS')
+powers <- readRDS('5_Powers/increasingnoise_powers.RDS')
 
 #Circles
 Group <- paste0('Noise Level ', 1:4)

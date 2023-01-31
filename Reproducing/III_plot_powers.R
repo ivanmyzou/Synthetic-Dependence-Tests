@@ -28,7 +28,7 @@ ggplot(legend_data, aes(y = y, x = x, color = model)) +
 
 #####
 # add
-powers <- readRDS('5. Powers/add_powers.RDS') %>% as.data.table
+powers <- readRDS('5_Powers/add_powers.RDS') %>% as.data.table
 
 titles <- paste0(rep(1:7, each = 2), c('A', 'B'))
 
@@ -38,7 +38,7 @@ for (i in 1:14){
 
 #####
 # dep
-powers <- readRDS('5. Powers/dep_powers.RDS') %>% as.data.table
+powers <- readRDS('5_Powers/dep_powers.RDS') %>% as.data.table
 
 titles <- c("Linear", "Diamond", "Triangle", "Crescent", "Points", "Exponential",
             "Circles", "Cross", "Wedge", "Cubic", "W-shape", "Parabola", "Two-parabola",
@@ -50,7 +50,7 @@ for (i in 1:20){
 
 #####
 # image
-powers <- readRDS('5. Powers/image_powers.RDS')
+powers <- readRDS('5_Powers/image_powers.RDS')
 
 titles <- paste0('Image ', 1:4)
 
@@ -60,7 +60,7 @@ for (i in 1:4){
 
 #####
 # scribble
-powers <- readRDS('5. Powers/scribble_powers.RDS')
+powers <- readRDS('5_Powers/scribble_powers.RDS')
 
 titles <- paste0('Scribble ', 1:6)
 
@@ -71,7 +71,7 @@ for (i in 1:6){
 #####
 #INC
 
-powers <- readRDS('5. Powers/increasingnoise_powers.RDS')
+powers <- readRDS('5_Powers/increasingnoise_powers.RDS')
 
 
 #Circles
